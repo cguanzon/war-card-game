@@ -1,8 +1,8 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
-
 <body>
 	<div class='container'>
 		<div class = 'description'>
@@ -15,31 +15,22 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
-
-		<div class='panel'>
-			<h1>Opponent's Card</h1>
-			<div class="card-count">Cards remaining: <span id="opp-card-count"></span></div>
-			<div class="card-container">
-				<div id="opp-card"></div>
-			</div>
-		</div>
-		<div class='panel'>
-			<h1>My Card</h1>
-			<div class="card-count">Cards remaining: <span id="my-card-count"></span></div>
-			<div class="card-container">
-				<div id="my-card"></div>
-			</div>
-		</div>
 		<div class="row row-centered">
 				<button class="btn btn-lg btn-warning">Play!</button>
 		</div>
+		<div class='panel-my'>
+			<h2>My Card</h2>
+			<div class="card-count">Cards remaining: <span id="my-card-count"></span></div>
+			<div id="my-card"></div>
+		</div>
+		<div class='panel-opp'>
+			<h2>Opponent's Card</h2>
+			<div class="card-count">Cards remaining: <span id="opp-card-count"></span></div>
+			<div id="opp-card"></div>
+		</div>
 	</div>
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src='script.js'></script>
 </body>
-
 </html>
