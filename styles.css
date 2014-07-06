@@ -58,6 +58,7 @@ h1 {
 	min-height: 79px;
 	height: 164px;
 	width: auto;
+	border-radius: 5px;
 }
 
 /*.card-container h2, .card-container h4 {
