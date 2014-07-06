@@ -1,26 +1,26 @@
 $(document).ready(function() {
 
 	//what does this do?
-	function convert_value_to_string(value) {
-		if (value > 10) {
-			switch (value) {
-				case 11:
-				return 'Jack';
-				break;
-				case 12:
-				return 'Queen';
-				break;
-				case 13:
-				return 'King';
-				break;
-			}
-		}
+	function convert_value_to_string(value) {	
+		switch (value) {
+			case 1:
+			return 'ace';
+			case 11:
+			return 'jack';
+			break;
+			case 12:
+			return 'queen';
+			break;
+			case 13:
+			return 'king';
+			break;
+		}	
 		return value.toString();
 	}
-
-	//what does this do?
-	//Caleb: This creates a deck in order, starting from
-	//1 of hearts to king of clubs
+	function getFileName(card){
+		var fileName = "./PNG-cards/" + convert_value_to_string(card.number) + "_of_" + card.suit + ".png";
+		return fileName;
+	}
 	var deck = [];
 	var suits = ['hearts', 'diamonds', 'spades', 'clubs'];
 	for (var i = 0; i<suits.length; i++) {
@@ -28,12 +28,9 @@ $(document).ready(function() {
 		for (var j = 0; j<13; j++) {
 			deck.push({number: j+1, suit: suit});
 		}
-	}
-	
+	}	
 	//shuffle the deck
-	deck = _.shuffle(deck);
-	
-	
+	deck = _.shuffle(deck);	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
 	//divide out the cards into the two arrays
@@ -42,7 +39,6 @@ $(document).ready(function() {
 	//deck will be left with only 26 cards at this point
 	cards_player_2 = (deck);
 	
-	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
 	function war(card1, card2) {
 		if(card1.number > card2.number){
 			return card1;
@@ -53,17 +49,13 @@ $(document).ready(function() {
 			return false;
 		}
 	}
-
 	function unload(array){
 		while(pending.length > 0){
 			var pushMe = pending.pop();
 			array.push(pushMe);
-			
 		}
 		logPending();
-
 	}
-
 	function logPending(){
 		var message = "";
 		for (var j in pending){
@@ -71,10 +63,6 @@ $(document).ready(function() {
 		}
 		console.log(message);
 	}
-
-	//create a play function
-		//compare the cards
-		//give the winner both cards (at end of deck)
 	function play() {
 		var card_1 = cards_player_1[0];
 		var card_2 = cards_player_2[0];
@@ -91,30 +79,22 @@ $(document).ready(function() {
 		}else{
 			advance();
 			play();
-		}
-
-		//this function (defined below) will continue to the next turn
+		}	
 		advance();
-
 	}
-	
-
-
 	function advance() {
-		//take the top two cards and display them
 		if (cards_player_1.length) {
 			var card_1 = cards_player_1[0];
 			var card_2 = cards_player_2[0];
-			$("#opp-card").html(convert_value_to_string(card_1.number)+" "+card_1.suit);
-			$("#opp-card-count").html(cards_player_1.length);
-			$("#my-card").html(convert_value_to_string(card_2.number)+" "+card_2.suit);
-			$("#my-card-count").html(cards_player_2.length);
+			 $("#opp-card-count").html(cards_player_1.length);
+			 $("#my-card-count").html(cards_player_2.length);
+			$("#opp-card").html('<img src="' + getFileName(card_1) + '"/>');
+			$("#my-card").html('<img src="' + getFileName(card_2) + '"/>');
 			
 		}
 	}
 	advance();
 	var pending = [];
-	
 	$(".btn").click(function() {
 		play();
 	});
