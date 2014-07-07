@@ -7,17 +7,17 @@ body {
 }
 h1,h2 {
 	font-weight: bold;
-	text-align: center;
 	color: hsla(196, 30%, 57%, 1);
 	margin: 0;
+	text-align: center;
+
 }
 h1{
-	font-size: 8em;
+	font-size: 6em;
 }
 h2{
 	font-size: 2em;
 	white-space: nowrap;
-	text-align: center;
 }
 
 li{

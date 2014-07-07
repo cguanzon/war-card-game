@@ -54,20 +54,11 @@ $(document).ready(function() {
 			var pushMe = pending.pop();
 			array.push(pushMe);
 		}
-		logPending();
-	}
-	function logPending(){
-		var message = "";
-		for (var j in pending){
-			message += " --> " + pending[j].number + " of " + pending[j].suit;
-		}
-		console.log(message);
 	}
 	function play() {
 		var card_1 = cards_player_1[0];
 		var card_2 = cards_player_2[0];
 		pending.push(card_1, card_2);
-		logPending();
 		cards_player_2 = _.without(cards_player_2,card_2);
 		cards_player_1 = _.without(cards_player_1,card_1);
 		var l = pending.length-1;
