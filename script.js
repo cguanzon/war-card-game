@@ -55,6 +55,20 @@ $(document).ready(function() {
 			array.push(pushMe);
 		}
 	}
+	function updateCards(warResult,lastPendingIndex){
+		if(warResult === pending[lastPendingIndex-1] ){
+			$("#message").html('Opp won the last round. ' + pending.length 
+				+ ' cards were sent to the bottom of his/her deck.');
+			unload(cards_player_1);	
+		}else if(warResult === pending[lastPendingIndex]){
+			$("#message").html('You won the last round. ' + pending.length 
+				+ ' cards were sent to the bottom of your deck.');
+			unload(cards_player_2);
+		}else{
+			$("#message").html('Last round was a tie. Comparing the next set of cards.')
+			advance();
+		}
+	}
 	function play() {
 		var card_1 = cards_player_1[0];
 		var card_2 = cards_player_2[0];
@@ -63,25 +77,17 @@ $(document).ready(function() {
 		cards_player_1 = _.without(cards_player_1,card_1);
 		var l = pending.length-1;
 		var result = war(pending[l-1],pending[l]);
-		if(result === pending[l-1] ){
-			unload(cards_player_1);
-		}else if(result === pending[l]){
-			unload(cards_player_2);
-		}else{
-			advance();
-			play();
-		}	
+		updateCards(result, l);
 		advance();
 	}
 	function advance() {
 		if (cards_player_1.length) {
 			var card_1 = cards_player_1[0];
 			var card_2 = cards_player_2[0];
-			 $("#opp-card-count").html(cards_player_1.length);
-			 $("#my-card-count").html(cards_player_2.length);
+			$("#opp-card-count").html(cards_player_1.length);
+			$("#my-card-count").html(cards_player_2.length);
 			$("#opp-card").html('<img src="' + getFileName(card_1) + '"/>');
-			$("#my-card").html('<img src="' + getFileName(card_2) + '"/>');
-			
+			$("#my-card").html('<img src="' + getFileName(card_2) + '"/>');	
 		}
 	}
 	advance();
