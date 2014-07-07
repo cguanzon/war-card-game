@@ -1,19 +1,24 @@
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body>
 	<div class='container'>
 		<div class = 'description'>
-			<h1>War</h1>
+			<h1>WAR</h1>
 			<h2>Directions</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<ul>
+				<li>You and your opponent start with 26 cards each</li>
+				<li>Each round is initiated by pressing the Play! button</li>
+				<li>In each round the top-most card in you and your opponents decks are evaluated</li>
+				<li>The player with the higher card value wins the roung</li>
+				<li>In case of a tie, the next 2 cards are evaluated for each player until a winner emerges</li>
+				<li>The winner of each round will have all the evaluated cards placed at the bottom of his/her deck</li>
+				<li>The game ends when both players get tired/bored. The player with the most cards wins!
+				</li>
+			</ul
 		</div>
 		<div class="row row-centered">
 				<button class="btn btn-lg btn-warning">Play!</button>
@@ -24,7 +29,7 @@
 			<div id="my-card"></div>
 		</div>
 		<div class='panel-opp'>
-			<h2>Opponent's Card</h2>
+			<h2>Opp's</h2>
 			<div class="card-count">Cards remaining: <span id="opp-card-count"></span></div>
 			<div id="opp-card"></div>
 		</div>
