@@ -49,9 +49,6 @@ aside{
 	padding: 4em 0.5em 0 0.5em;
 	vertical-align: middle;
 }
-#my-card, #opp-card{
-	box-sizing: border-box;
-}
 .card-count, aside p{
 	text-align: center;
 	font-weight: bold;

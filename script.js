@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-	//what does this do?
 	function convert_value_to_string(value) {	
 		switch (value) {
 			case 1:
@@ -29,20 +27,15 @@ $(document).ready(function() {
 			deck.push({number: j+1, suit: suit});
 		}
 	}	
-	//shuffle the deck
 	deck = _.shuffle(deck);	
 	var cards_player_1 = [];
 	var cards_player_2 = [];
-	//divide out the cards into the two arrays
-	
 	cards_player_1 = (deck.splice(0,26));
-	//deck will be left with only 26 cards at this point
 	cards_player_2 = (deck);
 	
 	function war(card1, card2) {
 		if(card1.number > card2.number){
 			return card1;
-		//else if to give room for tie breakers
 		}else if(card2.number > card1.number){
 			return card2;
 		}else{
@@ -51,8 +44,7 @@ $(document).ready(function() {
 	}
 	function unload(array){
 		while(pending.length > 0){
-			var pushMe = pending.pop();
-			array.push(pushMe);
+			array.push(pending.pop());
 		}
 	}
 	function updateCards(warResult,lastPendingIndex){
